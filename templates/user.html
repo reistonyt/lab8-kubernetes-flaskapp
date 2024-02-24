@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Home Page</title>
+    <script>
+        async function logout() {
+            var response = await fetch('/api/logout', {
+                method: 'POST'
+            });
+
+            if (response.ok) {
+                window.location.href = '/login';
+            }
+            else {
+                alert('Failed to logout');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <button onclick="logout()">Logout</button>
+</body>
+</html>
